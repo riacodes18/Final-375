@@ -1,0 +1,27 @@
+package com.uregina.app;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+public class toTime24Test{
+    @Test
+    public void inPM_valid(){
+    Time24 totime24 = new Time24(0, 0);
+    boolean time_PM = totime24.validate("20:30");
+    assertTrue(time_PM);
+    }
+
+    @Test
+    public void inAM_valid(){
+    Time24 totime24 = new Time24(0, 0);
+    boolean time_AM = totime24.validate("8:30");
+    assertTrue(time_AM);
+    }
+    
+    @Test
+    public void is_invalid(){
+    Time24 totime24 = new Time24(0, 0);
+    boolean time_invalid = totime24.validate("Aa:30");
+    assertTrue(time_invalid);
+    }
+}
